@@ -1,0 +1,37 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div id="login">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" class="form" action="">
+                        <h3 class="text-center text-info">Get Appointments</h3>
+                        <div class="form-group">
+                            <label for="date" class="text-info" >Pick a Date:</label><br>
+                            <input type="date" style="border-radius:30px ;" class="form-control form-control-lg " name="date"
+                            [(ngModel)]="dat" [ngModelOptions]="{standalone: true}" />  
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="speciality" class="text-info" >Select a Speciality:</label><br>
+                                <select class="form-control search-slt" 
+                                [(ngModel)]="speciality" name="speciality">
+                                <option>Select a Speciality</option>
+                                <option class="fs-5" *ngFor=" let specialityy of s"> {{specialityy}} </option>
+                            </select>                       
+                            </div>
+                        <div class="form-group">
+                            <!-- <label for="remember-me" class="text-info"></label><br> -->
+                            <button type="submit" name="submit" class="btn btn-info btn-md" value="Login" (click)="search(speciality)">Search</button>
+                        </div>
+                    </form>
+                    <div >
+                        <h3 class="text-center text-info">you Searched for Appointments on {{date?.getDate()}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

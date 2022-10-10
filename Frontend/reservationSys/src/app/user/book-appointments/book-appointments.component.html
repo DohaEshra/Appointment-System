@@ -1,0 +1,41 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div id="login">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" class="form" action="" *ngIf="flag==0">
+                        <h3 class="text-center text-info">Book an Appointment</h3>
+                        <div class="form-group">
+                            <label for="date" class="text-info" >Pick a Date:</label><br>
+                            <input type="date" style="border-radius:30px ;" class="form-control form-control-lg " name="date"
+                            [(ngModel)]="dat" [ngModelOptions]="{standalone: true}" />
+                               <div class="form-group">
+                                <label for="speciality" class="text-info" >Select time:</label><br>
+                                <input type="time" id="appt" name="appt"min="12:00" max="21:00" required [(ngModel)]="time" autocorrect="on">
+                                <p>select time between 12pm till 9pm</p>
+                               </div>   
+                            </div>
+                            
+                            <div class="form-group" *ngIf="s.length>0">
+                                <label for="speciality" class="text-info" >Select a Speciality:</label><br>
+                                <select class="form-control search-slt" 
+                                [(ngModel)]="spec" name="speciality" >
+                                <option>Select a Speciality</option>
+                                <option class="fs-5" *ngFor="let speciality of s"> {{speciality}} </option>
+                            </select>                       
+                            </div>
+                        <div class="form-group">
+                            <button type="submit" name="submit" class="btn btn-info btn-md" value="Login" (click)="Book()">Book</button>
+                        </div>
+                    </form>
+                    <div *ngIf="flag==1">
+                        <h3 class="text-center text-info">you Booked an Appointment on {{dat}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
